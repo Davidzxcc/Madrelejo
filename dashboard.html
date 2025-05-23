@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic Dashboard</title>
+  <style>
+    :root {
+      --dark-bg: #121212;
+      --deep-gray: #160505;
+      --muted-blue: #0b2c35;
+      --soft-white: #DADADA;
+      --dark-gray: #252525;
+      --lighter-gray: #333;
+      --accent-blue: #5DADE2;
+      --accent-soft: rgba(93, 173, 226, 0.3);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background: var(--dark-bg);
+      color: var(--soft-white);
+    }
+
+    /* Sticky Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--muted-blue);
+      color: var(--soft-white);
+      padding: 20px 30px;
+      font-size: 24px;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--soft-white);
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      padding-bottom: 60px; /* Adjust for fixed footer */
+    }
+
+    /* Sticky Sidebar */
+    .sidebar {
+      width: 260px;
+      background-color: var(--dark-gray);
+      color: var(--soft-white);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      box-shadow: 2px 0 10px var(--accent-soft);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    .sidebar a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      padding: 12px 18px;
+      display: block;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .sidebar a:link {
+      color: var(--accent-blue); /* Default link color */
+      text-decoration: none;
+    }
+
+    .sidebar a:visited {
+      color: var(--muted-blue); /* Color after the link is visited */
+    }
+
+    .sidebar a:hover {
+      background-color: var(--accent-blue); /* Background on hover */
+      color: var(--dark-bg); /* Text color on hover */
+    }
+
+    .sidebar a:active {
+      color: var(--soft-white); /* Color when the link is clicked */
+    }
+
+    /* Main Content Area */
+    .main-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 25px;
+      flex: 1;
+      background: var(--lighter-gray);
+      box-shadow: inset 0 0 10px var(--accent-soft);
+    }
+
+    .box {
+      background-color: var(--deep-gray);
+      border-radius: 12px;
+      box-shadow: 0 0 10px var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--soft-white);
+      padding: 60px 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px var(--accent-blue);
+      background-color: var(--muted-blue);
+    }
+
+    .box-large {
+      grid-column: span 2;
+      background-color: var(--dark-gray);
+    }
+
+    .box-small {
+      background-color: var(--muted-blue);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .main-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .sidebar {
+        width: 100%;
+        text-align: center;
+        display: none;
+      }
+
+      .sidebar.active {
+        display: flex;
+      }
+
+      .main-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Fixed Footer */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: var(--muted-blue);
+      color: var(--soft-white);
+      text-align: center;
+      padding: 15px;
+      z-index: 100;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <span>Dashboard Header</span>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+
+  <div class="container">
+    <div class="sidebar">
+      <p>Sidebar Menu</p>
+      <a href="index.html">Home</a>
+      <a href="#">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="#">Gallery</a>
+      <a href="#">Profile</a>
+      <a href="#">Settings</a>
+      <a href="#">Analytics</a>
+      <a href="#">Support</a>
+      <a href="#">Logout</a>
+    </div>
+
+    <div class="main-content">
+      <div class="box">Overtechnological</div>
+      <div class="box">Engagements</div>
+      <div class="box">Security Devices</div>
+      <div class="box">Transaction</div>
+      <div class="box">Demographic</div>
+      <div class="box">Behavior</div>
+      <div class="box box-large">Report</div>
+      <div class="box box-small">Subscribe</div>
+    </div>
+  </div>
+
+  <!-- Fixed Footer -->
+  <footer>
+    &copy; 2024 Futuristic Dashboard. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.sidebar').classList.toggle('active');
+    }
+  </script>
+
+</body>
+
+</html>

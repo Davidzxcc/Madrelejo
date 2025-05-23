@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get in Touch</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      position: relative;
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4285f4;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: rgb(18, 118, 211);
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      border-bottom: 3px solid rgb(12, 60, 165);
+      margin: 5px auto 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 14px;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border: 2px solid rgb(255, 253, 248);
+      box-shadow: 0 0 5px rgb(255, 255, 255);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #5655af, #3f2d8f);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background: white;
+      margin: 15% auto;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .close-btn {
+      background: #4285f4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #357ae8;
+    }
+
+    .map-section {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .map-section h3 {
+      color: rgb(18, 118, 211);
+      margin-bottom: 10px;
+    }
+
+    .map-section p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 200px;
+      border: 0;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+
+  <form id="contactForm">
+    <h2>Get in touch</h2>
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <input type="email" id="email" name="email" placeholder="Your Email" required>
+    <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Submit →</button>
+  </form>
+
+  <div class="map-section">
+    <h3>How to Get Here</h3>
+    <p>We're located at 900 San Marcelino St Ermita Manila via Google Maps:</p>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.1351330421544!2d120.9862821147788!3d14.586148889808436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca26dbb99fb9%3A0xf477cd7c6229992d!2s900%20San%20Marcelino%20St%2C%20Ermita%2C%20Manila!5e0!3m2!1sen!2sph!4v1688973483000!5m2!1sen!2sph"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <!-- Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <h3>Message Sent!</h3>
+      <p>Thank you for contacting us.</p>
+      <button class="close-btn" id="closeModalBtn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const modal = document.getElementById('successModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      modal.style.display = "block";
+      form.reset();
+    });
+
+    closeModalBtn.addEventListener('click', function() {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener('click', function(e) {
+      if (e.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>

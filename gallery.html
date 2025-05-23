@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>4x4 Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #4a73be;
+    }
+
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .gallery-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 0 20px 40px;
+    }
+
+    .gallery img, .gallery iframe {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <h1>4x4 Gallery - 4 Photos & 4 Videos</h1>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#">Dashboard</a>
+    </div>
+  </div>
+
+  <div class="gallery-title">Gallery about Happy Info Technology</div>
+
+  <div class="gallery">
+    <!-- Images -->
+    <img src="c:\Users\student\OneDrive - adamson.edu.ph\Documents\IMAGES\Good afternoon.jpg" alt="Photo 1">
+    <img src="c:\Users\student\OneDrive - adamson.edu.ph\Documents\IMAGES\good evening.jpg" alt="Photo 2">
+    <img src="c:\Users\student\OneDrive - adamson.edu.ph\Documents\IMAGES\good night.jpg" alt="Photo 3">
+    <img src="c:\Users\student\OneDrive - adamson.edu.ph\Documents\IMAGES\Good Morning.jpg" alt="Photo 4">
+
+    <!-- IT-related YouTube videos -->
+    <iframe src="c:\Users\student\Downloads\What is Information Technology Explained Simply! - 5-Minute Lessons by Victor (480p, h264).mp4" title="What is Information Technology?" allowfullscreen></iframe>
+    <iframe src="c:\Users\student\Downloads\Top 10 Technologies To Learn In 2025  Top Trending Technologies To Learn In 2025  Simplilearn - Simplilearn (1080p, h264).mp4" title="Best to learn Technlology in 2025" allowfullscreen></iframe>
+    <iframe src="c:\Users\student\Downloads\An introvert's guide to networking  Rick Turoczy  TEDxPortland - TEDx Talks (1080p, h264).mp4" title="Beginner's Guide to Networking" allowfullscreen></iframe>
+    <iframe src="c:\Users\student\Downloads\What Is Cyber Security  How It Works  Cyber Security In 7 Minutes  Cyber Security  Simplilearn - Simplilearn (1080p, h264).mp4" title="Cybersecurity Explained" allowfullscreen></iframe>
+  </div>
+
+</body>
+</html>
